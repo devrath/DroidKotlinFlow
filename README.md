@@ -23,16 +23,27 @@ As an android developer, you would have come across RxJava for asynchronous prog
 
 
 ### Samples:
-* **Single Network Call:**  Single network request
+* **Single Network Call:**  This is performing a single networking request
     * **[Model](app/src/main/java/com/demo/flow/viewmodels/SingleNetworkCallViewModel.kt)**
       <->
       **[View](app/src/main/java/com/demo/flow/view/fragments/SingleNetworkCallFragment.kt)**
       <->
       **[ViewModel](app/src/main/java/com/demo/flow/viewmodels/SingleNetworkCallViewModel.kt)**
       <->
-      **[Repository](app/src/main/java/com/demo/flow/network/repository/PlaylistRepository.kt)**
+      **[Repository](app/src/main/java/com/demo/flow/network/repository/UsersRepository.kt)**
       <->
-      **[Service](app/src/main/java/com/demo/flow/network/services/PlayListService.kt)**
+      **[Service](app/src/main/java/com/demo/flow/network/services/UserListService.kt)**
       
+* **Parallel Network Call:**  This involves making two networking requests in parallel, Once both are completed the results of both of them are returned at once.
+    * **[Model](app/src/main/java/com/demo/flow/viewmodels/SingleNetworkCallViewModel.kt)**
+      <->
+      **[View](app/src/main/java/com/demo/flow/view/fragments/SingleNetworkCallFragment.kt)**
+      <->
+      **[ViewModel](app/src/main/java/com/demo/flow/viewmodels/ParallelNetworkCallViewModel.kt)**
+      <->
+      **[Repository](app/src/main/java/com/demo/flow/network/repository/UsersRepository.kt)**
+      <->
+      **[Service1](app/src/main/java/com/demo/flow/network/services/UserListService.kt)**,
+      **[Service2](app/src/main/java/com/demo/flow/network/services/MoreUsersListService.kt)**
     
     
