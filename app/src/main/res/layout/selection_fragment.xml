@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fadeScrollbars="false"
+    android:padding="@dimen/screen_padding">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/startSingleNetworkCallActivity"
+            android:text="@string/single_network_call"
+            style="@style/launchBtnStyle"/>
+
+        <Button
+            android:id="@+id/startSeriesNetworkCallsActivity"
+            android:text="@string/series_network_calls"
+            style="@style/launchBtnStyle"/>
+
+        <Button
+            android:id="@+id/startParallelNetworkCallsActivity"
+            android:text="@string/parallel_network_calls"
+            style="@style/launchBtnStyle"/>
+
+        <Button
+            android:id="@+id/startRoomDatabaseActivity"
+            android:text="@string/room_database"
+            style="@style/launchBtnStyle"/>
+
+        <Button
+            android:id="@+id/startCatchActivity"
+            android:text="@string/catch_error"
+            style="@style/launchBtnStyle"/>
+
+        <Button
+            android:id="@+id/startEmitAllActivity"
+            android:text="@string/emit_all_error"
+            style="@style/launchBtnStyle"/>
+
+        <Button
+            android:id="@+id/startCompletionActivity"
+            android:text="@string/completion"
+            style="@style/launchBtnStyle"/>
+
+        <Button
+            android:id="@+id/startLongRunningTaskActivity"
+            android:text="@string/long_running_task"
+            style="@style/launchBtnStyle"/>
+
+        <Button
+            android:id="@+id/startTwoLongRunningTasksActivity"
+            android:text="@string/two_long_running_tasks"
+            style="@style/launchBtnStyle"/>
+
+        <Button
+            android:id="@+id/startFilterActivity"
+            android:text="@string/filter"
+            style="@style/launchBtnStyle"/>
+
+        <Button
+            android:id="@+id/startMapActivity"
+            android:text="@string/map"
+            style="@style/launchBtnStyle"/>
+
+        <Button
+            android:id="@+id/startReduceActivity"
+            android:text="@string/reduce"
+            style="@style/launchBtnStyle"/>
+
+        <Button
+            android:id="@+id/startSearchActivity"
+            android:text="@string/search"
+            style="@style/launchBtnStyle"/>
+
+        <Button
+            android:id="@+id/startRetryActivity"
+            android:text="@string/retry"
+            style="@style/launchBtnStyle"/>
+
+        <Button
+            android:id="@+id/startRetryWhenActivity"
+            android:text="@string/retry_when"
+            style="@style/launchBtnStyle"/>
+
+        <Button
+            android:id="@+id/startRetryExponentialBackoffActivity"
+            android:text="@string/retry_exponential_backoff"
+            style="@style/launchBtnStyle"/>
+
+    </LinearLayout>
+</ScrollView>

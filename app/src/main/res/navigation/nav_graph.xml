@@ -2,22 +2,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/nav_first_fragment">
+    app:startDestination="@id/nav_selection_fragment">
 
     <fragment
-        android:id="@+id/nav_first_fragment"
-        android:name="com.demo.flow.view.fragments.FirstFragment"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/nav_selection_fragment"
+        android:name="com.demo.flow.view.fragments.SelectionFragment"
+        tools:layout="@layout/selection_fragment">
 
         <action
             android:id="@+id/action_first_to_second"
-            app:destination="@id/nav_second_fragment"/>
+            app:destination="@id/nav_single_network_call_fragment"/>
 
     </fragment>
 
     <fragment
-        android:id="@+id/nav_second_fragment"
-        android:name="com.demo.flow.view.fragments.SecondFragment"
-        tools:layout="@layout/fragment_second"/>
+        android:id="@+id/nav_single_network_call_fragment"
+        android:name="com.demo.flow.view.fragments.SingleNetworkCallFragment"
+        tools:layout="@layout/fragment_single_network_call"/>
 
 </navigation>
