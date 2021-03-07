@@ -12,7 +12,7 @@ As an android developer, you would have come across RxJava for asynchronous prog
 ![Architecture](https://img.shields.io/badge/MVVM-Architecture-red)
 ![KotlinFlow](https://img.shields.io/badge/KotlinFlow-API-yellowgreen)
 ![Coroutines](https://img.shields.io/badge/Coroutines-API-green)
-![StateFlow](https://img.shields.io/badge/StateFlow-Flow%20API-brightgreen)
+![StateFlow](https://img.shields.io/badge/StateFlow-API-green)
 
 
 ## Guide to state flow 
