@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import com.demo.flow.R
 import com.demo.flow.base.BaseFragment
 import com.demo.flow.databinding.FragmentSingleNetworkCallBinding
+import com.demo.flow.viewmodels.SingleNetworkCallViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SingleNetworkCallFragment : BaseFragment() {
 
-    //private val viewModel : SingleNetworkCallViewModel by viewModels()
+    private val viewModel by viewModel<SingleNetworkCallViewModel>()
 
     private var _binding: FragmentSingleNetworkCallBinding? = null
 
