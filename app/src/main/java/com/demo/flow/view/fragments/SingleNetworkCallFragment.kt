@@ -12,6 +12,7 @@ import com.demo.flow.databinding.FragmentSingleNetworkCallBinding
 import com.demo.flow.databinding.SelectionFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SingleNetworkCallFragment : BaseFragment() {
 
     private var _binding: FragmentSingleNetworkCallBinding? = null

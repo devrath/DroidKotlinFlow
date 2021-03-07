@@ -13,6 +13,7 @@ import com.demo.flow.base.BaseFragment
 import com.demo.flow.databinding.SelectionFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SelectionFragment : BaseFragment() , View.OnClickListener {
 
     private var _binding: SelectionFragmentBinding? = null
