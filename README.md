@@ -20,3 +20,12 @@ As an android developer, you would have come across RxJava for asynchronous prog
 * State flow needs to have a initial value but livedata does not, Advantage is that if there is a initial value meaning there is always a value and the state can't be null at any moment
 * State flow will be active when your app is in background but, live data won't
 * State flow can use powerful flow operators by transforming the data into something new before being observed. 
+
+
+### Samples:
+* **Single Network Call:**  Single network request
+    * [Model ------ Code](app/src/main/java/com/demo/flow/viewmodels/SingleNetworkCallViewModel.kt)
+    * [View ------- Code](app/src/main/java/com/demo/flow/view/fragments/SingleNetworkCallFragment.kt)
+    * [ViewModel -- Code](app/src/main/java/com/demo/flow/viewmodels/SingleNetworkCallViewModel.kt)
+    * [Repository - Code](app/src/main/java/com/demo/flow/network/repository/PlaylistRepository.kt)
+    * [Service ---- Code](app/src/main/java/com/demo/flow/network/services/PlayListService.kt)
