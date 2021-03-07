@@ -1,7 +1,6 @@
 package com.demo.flow.network.api
 
 import com.demo.flow.models.ApiUser
-import com.demo.flow.models.PlaylistItem
 import retrofit2.http.GET
 
 interface PlaylistAPI {

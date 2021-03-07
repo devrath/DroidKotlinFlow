@@ -3,12 +3,13 @@ package com.demo.flow.view.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.demo.flow.databinding.PlaylistItemBinding
-import com.demo.flow.models.PlaylistItem
+import com.demo.flow.models.ApiUser
 
-class MyPlaylistRecyclerViewAdapter () : RecyclerView.Adapter<MyPlaylistRecyclerViewAdapter.PlaylistViewHolder>() {
-
-    private var values = ArrayList<PlaylistItem>()
+class MyPlaylistRecyclerViewAdapter(
+    private val values: ArrayList<ApiUser>
+) : RecyclerView.Adapter<MyPlaylistRecyclerViewAdapter.PlaylistViewHolder>() {
 
     override fun getItemCount() = values.size
 
@@ -19,13 +20,17 @@ class MyPlaylistRecyclerViewAdapter () : RecyclerView.Adapter<MyPlaylistRecycler
     override fun onBindViewHolder(holder: PlaylistViewHolder, position: Int) {
         with(holder){
             with(values[position]) {
-                binding.playlistName.text = name
-                binding.playlistCategory.text = category
+                binding.textViewUserName.text = name
+                binding.textViewUserEmail.text = email
+                Glide.with(binding.imageViewAvatar.context)
+                    .load(avatar)
+                    .into(binding.imageViewAvatar)
+
             }
         }
     }
 
-    fun updateList(listItems: List<PlaylistItem>) {
+    fun updateList(listItems: List<ApiUser>) {
         values.clear()
         values.addAll(listItems)
         notifyDataSetChanged()

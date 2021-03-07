@@ -1,7 +1,6 @@
 package com.demo.flow.network.services
 
 import com.demo.flow.models.ApiUser
-import com.demo.flow.models.PlaylistItem
 import com.demo.flow.network.api.PlaylistAPI
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

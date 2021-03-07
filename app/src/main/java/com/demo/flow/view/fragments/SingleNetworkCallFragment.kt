@@ -6,13 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
-import com.demo.flow.R
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.demo.flow.base.BaseFragment
 import com.demo.flow.databinding.FragmentSingleNetworkCallBinding
 import com.demo.flow.utils.extensions.snack
 import com.demo.flow.view.actions.PlaylistUiState
 import com.demo.flow.view.adapters.MyPlaylistRecyclerViewAdapter
 import com.demo.flow.viewmodels.SingleNetworkCallViewModel
+import com.mpl.androidapp.kotlin.util.extensions.gone
+import com.mpl.androidapp.kotlin.util.extensions.visiable
 import kotlinx.coroutines.flow.collect
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -21,11 +24,11 @@ class SingleNetworkCallFragment : BaseFragment() {
     private val viewModel by viewModel<SingleNetworkCallViewModel>()
 
     private var _binding: FragmentSingleNetworkCallBinding? = null
-    private val listAdapter = MyPlaylistRecyclerViewAdapter()
-
     private val binding get() = _binding!!
 
     private lateinit var mContext : Context
+
+    private var listAdapter = MyPlaylistRecyclerViewAdapter(arrayListOf())
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -43,7 +46,7 @@ class SingleNetworkCallFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // setupUI()
+        setupUI()
         setupObserver()
         initiateApi()
     }
@@ -57,26 +60,39 @@ class SingleNetworkCallFragment : BaseFragment() {
         viewModel.fetchUsers()
     }
 
+    private fun setupUI() {
+        binding.recyclerView.layoutManager = LinearLayoutManager(mContext)
+        listAdapter = MyPlaylistRecyclerViewAdapter(arrayListOf())
+        binding.recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                binding.recyclerView.context,
+                (binding.recyclerView.layoutManager as LinearLayoutManager).orientation
+            )
+        )
+        binding.recyclerView.adapter = listAdapter
+    }
+
     private fun setupObserver() {
 
         lifecycleScope.launchWhenStarted {
             viewModel.playlistUiState.collect {
                 when (it) {
                     is PlaylistUiState.Success -> {
-                        binding.progressBar.visibility = View.GONE
-                    }
-                    is PlaylistUiState.Error -> {
-                        binding.rootId.snack(it.message) {}
-                        binding.progressBar.visibility = View.GONE
+                        binding.progressBar.gone()
+                        binding.recyclerView.visiable()
+                        listAdapter.updateList(it.usersList)
                     }
                     is PlaylistUiState.Loading -> {
-                        binding.progressBar.visibility = View.VISIBLE
+                        binding.progressBar.visiable()
+                        binding.recyclerView.gone()
+                    }
+                    is PlaylistUiState.Error -> {
+                        binding.progressBar.gone()
+                        binding.rootId.snack(it.message) {}
                     }
                     else -> Unit
                 }
             }
         }
     }
-
-
 }
