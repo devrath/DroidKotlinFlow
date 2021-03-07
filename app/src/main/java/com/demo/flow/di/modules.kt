@@ -2,8 +2,9 @@ package com.demo.flow.di
 
 
 import com.demo.flow.network.api.PlaylistAPI
-import com.demo.flow.network.repository.PlaylistRepository
-import com.demo.flow.network.services.PlayListService
+import com.demo.flow.network.repository.UsersRepository
+import com.demo.flow.network.services.MoreUsersListService
+import com.demo.flow.network.services.UserListService
 import com.demo.flow.utils.Constants.APP_URL
 import com.demo.flow.viewmodels.ParallelNetworkCallViewModel
 import com.demo.flow.viewmodels.SingleNetworkCallViewModel
@@ -17,22 +18,17 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 val viewModelModule = module {
-    viewModel {
-        SingleNetworkCallViewModel(get())
-        ParallelNetworkCallViewModel(get())
-    }
+    viewModel { SingleNetworkCallViewModel(get()) }
+    viewModel { ParallelNetworkCallViewModel(get()) }
 }
 
 val repositoryModule = module {
-    single {
-        PlaylistRepository(get())
-    }
+    single { UsersRepository(get(),get()) }
 }
 
 val serviceModule = module {
-    single {
-        PlayListService(get())
-    }
+    single { UserListService(get()) }
+    single { MoreUsersListService(get()) }
 }
 
 val apiModule = module {

@@ -6,14 +6,14 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 
-class PlayListService (
+class MoreUsersListService (
     private val api : PlaylistAPI
 ) {
 
-    suspend fun fetchPlayList() : Flow<Result<List<ApiUser>>> {
+    suspend fun fetchMoreUserList() : Flow<Result<List<ApiUser>>> {
 
         return flow {
-            emit(Result.success(api.getUsers()))
+            emit(Result.success(api.getMoreUsers()))
         }.catch {
             emit(Result.failure(RuntimeException("Something went wrong")))
         }

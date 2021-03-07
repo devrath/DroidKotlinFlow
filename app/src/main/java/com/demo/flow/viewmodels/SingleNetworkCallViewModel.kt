@@ -1,7 +1,7 @@
 package com.demo.flow.viewmodels
 
 import androidx.lifecycle.*
-import com.demo.flow.network.repository.PlaylistRepository
+import com.demo.flow.network.repository.UsersRepository
 import com.demo.flow.utils.Constants.GENERIC_ERROR_MESSAGE
 import com.demo.flow.view.actions.SingleNetworkCallUiState
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 
 class SingleNetworkCallViewModel(
-    private val repository : PlaylistRepository
+    private val repository : UsersRepository
 ) : ViewModel() {
 
     private val _loginUiState = MutableStateFlow<SingleNetworkCallUiState>(SingleNetworkCallUiState.Empty)

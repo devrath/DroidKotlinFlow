@@ -2,18 +2,16 @@ package com.demo.flow.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.demo.flow.network.repository.PlaylistRepository
+import com.demo.flow.models.ApiUser
+import com.demo.flow.network.repository.UsersRepository
 import com.demo.flow.utils.Constants
 import com.demo.flow.view.actions.ParallelNetworkCallUiState
-import com.demo.flow.view.actions.SingleNetworkCallUiState
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
 class ParallelNetworkCallViewModel(
-    private val repository : PlaylistRepository
+    private val repository : UsersRepository
 ) : ViewModel() {
 
     private val _loginUiState = MutableStateFlow<ParallelNetworkCallUiState>(ParallelNetworkCallUiState.Empty)
@@ -23,15 +21,23 @@ class ParallelNetworkCallViewModel(
     fun fetchUsers() = viewModelScope.launch {
         _loginUiState.value = ParallelNetworkCallUiState.Loading
 
-        repository.getPlaylists().catch { e ->
-            _loginUiState.value = ParallelNetworkCallUiState.Error(e.toString())
-        }.collect {
-            if (it.isSuccess) {
-                _loginUiState.value = ParallelNetworkCallUiState.Success(it.getOrNull().orEmpty())
-            } else if (it.isFailure) {
-                _loginUiState.value = ParallelNetworkCallUiState.Error(Constants.GENERIC_ERROR_MESSAGE)
-            }
-        }
+        repository.getPlaylists()
+            .zip(repository.getMorePlaylists()) { usersFromApi, moreUsersFromApi ->
+                if (usersFromApi.isSuccess && moreUsersFromApi.isSuccess) {
+                    val allUsersFromApi = mutableListOf<ApiUser>()
+                    allUsersFromApi.addAll(usersFromApi.getOrNull().orEmpty())
+                    allUsersFromApi.addAll(moreUsersFromApi.getOrNull().orEmpty())
+                    _loginUiState.value = ParallelNetworkCallUiState.Success(allUsersFromApi)
+                    return@zip allUsersFromApi
+                } else {
+                    _loginUiState.value = ParallelNetworkCallUiState.Error(Constants.GENERIC_ERROR_MESSAGE)
+                }
+            }.flowOn(Dispatchers.Default)
+                .catch { _loginUiState.value = ParallelNetworkCallUiState.Error(it.message!!) }
+                .collect {
+                    val mData = it as List<ApiUser>
+                    _loginUiState.value = ParallelNetworkCallUiState.Success(mData)
+                }
     }
 
 }
