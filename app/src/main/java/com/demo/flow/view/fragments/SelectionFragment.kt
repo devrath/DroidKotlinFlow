@@ -11,9 +11,9 @@ import androidx.navigation.fragment.findNavController
 import com.demo.flow.R
 import com.demo.flow.base.BaseFragment
 import com.demo.flow.databinding.SelectionFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 class SelectionFragment : BaseFragment() , View.OnClickListener {
-
 
     private var _binding: SelectionFragmentBinding? = null
 

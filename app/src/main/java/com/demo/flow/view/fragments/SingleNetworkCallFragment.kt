@@ -10,6 +10,7 @@ import com.demo.flow.R
 import com.demo.flow.base.BaseFragment
 import com.demo.flow.databinding.FragmentSingleNetworkCallBinding
 import com.demo.flow.databinding.SelectionFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 class SingleNetworkCallFragment : BaseFragment() {
 
