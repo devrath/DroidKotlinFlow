@@ -1,5 +1,6 @@
 package com.demo.flow.network.services
 
+import com.demo.flow.models.ApiUser
 import com.demo.flow.models.PlaylistItem
 import com.demo.flow.network.api.PlaylistAPI
 import kotlinx.coroutines.flow.Flow
@@ -10,10 +11,10 @@ class PlayListService (
     private val api : PlaylistAPI
 ) {
 
-    suspend fun fetchPlayList() : Flow<Result<List<PlaylistItem>>> {
+    suspend fun fetchPlayList() : Flow<Result<List<ApiUser>>> {
 
         return flow {
-            emit(Result.success(api.fetchPlayList()))
+            emit(Result.success(api.getUsers()))
         }.catch {
             emit(Result.failure(RuntimeException("Something went wrong")))
         }
