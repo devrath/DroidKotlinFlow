@@ -25,13 +25,13 @@ As an android developer, you would have come across RxJava for asynchronous prog
 ### Samples:
 * **Single Network Call:**  Single network request
     * **[Model](app/src/main/java/com/demo/flow/viewmodels/SingleNetworkCallViewModel.kt)**
-      --
+      <->
       **[View](app/src/main/java/com/demo/flow/view/fragments/SingleNetworkCallFragment.kt)**
-      --
+      <->
       **[ViewModel](app/src/main/java/com/demo/flow/viewmodels/SingleNetworkCallViewModel.kt)**
-      --
+      <->
       **[Repository](app/src/main/java/com/demo/flow/network/repository/PlaylistRepository.kt)**
-      --
+      <->
       **[Service](app/src/main/java/com/demo/flow/network/services/PlayListService.kt)**
       
     
