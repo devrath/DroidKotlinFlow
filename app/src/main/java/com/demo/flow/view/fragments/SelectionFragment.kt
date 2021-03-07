@@ -29,7 +29,7 @@ class SelectionFragment : BaseFragment() , View.OnClickListener {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = SelectionFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -46,11 +46,13 @@ class SelectionFragment : BaseFragment() , View.OnClickListener {
 
     private fun setClickListener() {
         binding.startSingleNetworkCallActivity.setOnClickListener(this)
+        binding.startParallelNetworkCallsActivity.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
         when(view?.id){
             R.id.startSingleNetworkCallActivity -> findNavController().navigate(R.id.nav_single_network_call_fragment)
+            R.id.startParallelNetworkCallsActivity -> findNavController().navigate(R.id.nav_parallel_network_call_fragment)
         }
     }
 }

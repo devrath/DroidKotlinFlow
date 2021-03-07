@@ -5,6 +5,7 @@ import com.demo.flow.network.api.PlaylistAPI
 import com.demo.flow.network.repository.PlaylistRepository
 import com.demo.flow.network.services.PlayListService
 import com.demo.flow.utils.Constants.APP_URL
+import com.demo.flow.viewmodels.ParallelNetworkCallViewModel
 import com.demo.flow.viewmodels.SingleNetworkCallViewModel
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
@@ -18,6 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 val viewModelModule = module {
     viewModel {
         SingleNetworkCallViewModel(get())
+        ParallelNetworkCallViewModel(get())
     }
 }
 

@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_first_to_second"
             app:destination="@id/nav_single_network_call_fragment"/>
+        <action
+            android:id="@+id/action_nav_selection_fragment_to_nav_parallel_network_call_fragment"
+            app:destination="@id/nav_parallel_network_call_fragment" />
 
     </fragment>
 
@@ -19,5 +22,10 @@
         android:id="@+id/nav_single_network_call_fragment"
         android:name="com.demo.flow.view.fragments.SingleNetworkCallFragment"
         tools:layout="@layout/fragment_single_network_call"/>
+
+    <fragment
+        android:id="@+id/nav_parallel_network_call_fragment"
+        android:name="com.demo.flow.view.fragments.ParallelNetworkCallFragment"
+        tools:layout="@layout/fragment_parallel_network_call"/>
 
 </navigation>
