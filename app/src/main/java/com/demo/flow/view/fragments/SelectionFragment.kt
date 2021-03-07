@@ -9,9 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.fragment.findNavController
 import com.demo.flow.R
+import com.demo.flow.base.BaseFragment
 import com.demo.flow.databinding.SelectionFragmentBinding
 
-class SelectionFragment : Fragment() , View.OnClickListener {
+class SelectionFragment : BaseFragment() , View.OnClickListener {
 
 
     private var _binding: SelectionFragmentBinding? = null
