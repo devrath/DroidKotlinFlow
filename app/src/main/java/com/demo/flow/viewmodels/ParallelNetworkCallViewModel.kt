@@ -1,5 +1,6 @@
 package com.demo.flow.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.demo.flow.models.ApiUser
@@ -23,15 +24,11 @@ class ParallelNetworkCallViewModel(
 
         repository.getPlaylists()
             .zip(repository.getMorePlaylists()) { usersFromApi, moreUsersFromApi ->
-                if (usersFromApi.isSuccess && moreUsersFromApi.isSuccess) {
-                    val allUsersFromApi = mutableListOf<ApiUser>()
-                    allUsersFromApi.addAll(usersFromApi.getOrNull().orEmpty())
-                    allUsersFromApi.addAll(moreUsersFromApi.getOrNull().orEmpty())
-                    _loginUiState.value = ParallelNetworkCallUiState.Success(allUsersFromApi)
-                    return@zip allUsersFromApi
-                } else {
-                    _loginUiState.value = ParallelNetworkCallUiState.Error(Constants.GENERIC_ERROR_MESSAGE)
-                }
+                val allUsersFromApi = mutableListOf<ApiUser>()
+                allUsersFromApi.addAll(usersFromApi)
+                allUsersFromApi.addAll(moreUsersFromApi)
+                _loginUiState.value = ParallelNetworkCallUiState.Success(allUsersFromApi)
+                return@zip allUsersFromApi
             }.flowOn(Dispatchers.Default)
                 .catch { _loginUiState.value = ParallelNetworkCallUiState.Error(it.message!!) }
                 .collect {

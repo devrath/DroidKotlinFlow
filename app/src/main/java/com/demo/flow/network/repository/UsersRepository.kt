@@ -9,10 +9,10 @@ class UsersRepository (
     private val userListService: UserListService,
     private val moreUsersListService: MoreUsersListService
 ) {
-    suspend fun getPlaylists() : Flow<Result<List<ApiUser>>>{
+    suspend fun getPlaylists() : Flow<List<ApiUser>>{
         return userListService.fetchUserList()
     }
-    suspend fun getMorePlaylists() : Flow<Result<List<ApiUser>>>{
+    suspend fun getMorePlaylists() : Flow<List<ApiUser>>{
         return moreUsersListService.fetchMoreUserList()
     }
 }

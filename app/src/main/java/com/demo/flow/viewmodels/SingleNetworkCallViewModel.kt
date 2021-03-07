@@ -3,6 +3,7 @@ package com.demo.flow.viewmodels
 import androidx.lifecycle.*
 import com.demo.flow.network.repository.UsersRepository
 import com.demo.flow.utils.Constants.GENERIC_ERROR_MESSAGE
+import com.demo.flow.view.actions.ParallelNetworkCallUiState
 import com.demo.flow.view.actions.SingleNetworkCallUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -25,11 +26,7 @@ class SingleNetworkCallViewModel(
         repository.getPlaylists().catch { e ->
             _loginUiState.value = SingleNetworkCallUiState.Error(e.toString())
         }.collect {
-            if (it.isSuccess) {
-                _loginUiState.value = SingleNetworkCallUiState.Success(it.getOrNull().orEmpty())
-            } else if (it.isFailure) {
-                _loginUiState.value = SingleNetworkCallUiState.Error(GENERIC_ERROR_MESSAGE)
-            }
+            _loginUiState.value = SingleNetworkCallUiState.Success(it)
         }
     }
 

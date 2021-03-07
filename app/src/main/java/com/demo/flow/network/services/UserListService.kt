@@ -10,12 +10,11 @@ class UserListService (
     private val api : PlaylistAPI
 ) {
 
-    suspend fun fetchUserList() : Flow<Result<List<ApiUser>>> {
-
+    suspend fun fetchUserList() : Flow<List<ApiUser>> {
         return flow {
-            emit(Result.success(api.getUsers()))
-        }.catch {
-            emit(Result.failure(RuntimeException("Something went wrong")))
+            emit(api.getUsers())
+        }.catch { exception ->
+            throw exception
         }
     }
 
