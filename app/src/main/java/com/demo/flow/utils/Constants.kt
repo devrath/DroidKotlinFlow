@@ -1,5 +1,5 @@
 package com.demo.flow.utils
 
 object Constants {
-    var APP_URL = "http://192.168.1.6:2999/"
+    var APP_URL = "http://127.0.0.1:2999/"
 }
