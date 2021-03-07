@@ -14,8 +14,8 @@ import com.demo.flow.utils.extensions.snack
 import com.demo.flow.view.actions.PlaylistUiState
 import com.demo.flow.view.adapters.MyPlaylistRecyclerViewAdapter
 import com.demo.flow.viewmodels.SingleNetworkCallViewModel
-import com.mpl.androidapp.kotlin.util.extensions.gone
-import com.mpl.androidapp.kotlin.util.extensions.visiable
+import com.demo.flow.utils.extensions.gone
+import com.demo.flow.utils.extensions.visiable
 import kotlinx.coroutines.flow.collect
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

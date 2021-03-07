@@ -1,4 +1,4 @@
-package com.mpl.androidapp.kotlin.util.extensions
+package com.demo.flow.utils.extensions
 
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
