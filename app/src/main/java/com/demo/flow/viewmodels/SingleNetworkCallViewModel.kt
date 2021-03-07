@@ -1,10 +1,11 @@
 package com.demo.flow.viewmodels
 
 import androidx.lifecycle.ViewModel
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
+import com.demo.flow.network.repository.PlaylistRepository
 
-@HiltViewModel
-class SingleNetworkCallViewModel  @Inject constructor() : ViewModel() {
+
+class SingleNetworkCallViewModel(
+    private val repository : PlaylistRepository
+) : ViewModel() {
 
 }
