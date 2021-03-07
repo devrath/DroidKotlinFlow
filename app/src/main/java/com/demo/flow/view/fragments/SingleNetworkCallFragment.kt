@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.demo.flow.base.BaseFragment
 import com.demo.flow.databinding.FragmentSingleNetworkCallBinding
 import com.demo.flow.utils.extensions.snack
-import com.demo.flow.view.actions.PlaylistUiState
+import com.demo.flow.view.actions.SingleNetworkCallUiState
 import com.demo.flow.view.adapters.MyPlaylistRecyclerViewAdapter
 import com.demo.flow.viewmodels.SingleNetworkCallViewModel
 import com.demo.flow.utils.extensions.gone
@@ -75,18 +75,18 @@ class SingleNetworkCallFragment : BaseFragment() {
     private fun setupObserver() {
 
         lifecycleScope.launchWhenStarted {
-            viewModel.playlistUiState.collect {
+            viewModel.singleNetworkCallUiState.collect {
                 when (it) {
-                    is PlaylistUiState.Success -> {
+                    is SingleNetworkCallUiState.Success -> {
                         binding.progressBar.gone()
                         binding.recyclerView.visiable()
                         listAdapter.updateList(it.usersList)
                     }
-                    is PlaylistUiState.Loading -> {
+                    is SingleNetworkCallUiState.Loading -> {
                         binding.progressBar.visiable()
                         binding.recyclerView.gone()
                     }
-                    is PlaylistUiState.Error -> {
+                    is SingleNetworkCallUiState.Error -> {
                         binding.progressBar.gone()
                         binding.rootId.snack(it.message) {}
                     }
