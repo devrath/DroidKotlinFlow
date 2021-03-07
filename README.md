@@ -8,8 +8,6 @@ As an android developer, you would have come across RxJava for asynchronous prog
 
 
 ![Hilt](https://img.shields.io/badge/Hilt-Dependency%20Injection-orange)
-![Koin](https://img.shields.io/badge/Koin-Dependency%20Injection-orange)
-![Unit Testing](https://img.shields.io/badge/Unit%20Testing-Testing-blue)
 ![Architecture](https://img.shields.io/badge/MVVM-Architecture-red)
 ![KotlinFlow](https://img.shields.io/badge/KotlinFlow-API-yellowgreen)
 ![Coroutines](https://img.shields.io/badge/Coroutines-API-green)
