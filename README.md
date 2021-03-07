@@ -24,7 +24,7 @@ As an android developer, you would have come across RxJava for asynchronous prog
 
 ### Samples:
 * **Single Network Call:**  This is performing a single networking request
-    * **[Model](app/src/main/java/com/demo/flow/viewmodels/SingleNetworkCallViewModel.kt)**
+    * **[Model](app/src/main/java/com/demo/flow/models/ApiUser.kt)**
       <->
       **[View](app/src/main/java/com/demo/flow/view/fragments/SingleNetworkCallFragment.kt)**
       <->
@@ -35,7 +35,7 @@ As an android developer, you would have come across RxJava for asynchronous prog
       **[Service](app/src/main/java/com/demo/flow/network/services/UserListService.kt)**
       
 * **Parallel Network Call:**  This involves making two networking requests in parallel, Once both are completed the results of both of them are returned at once.
-    * **[Model](app/src/main/java/com/demo/flow/viewmodels/SingleNetworkCallViewModel.kt)**
+    * **[Model](app/src/main/java/com/demo/flow/models/ApiUser.kt)**
       <->
       **[View](app/src/main/java/com/demo/flow/view/fragments/SingleNetworkCallFragment.kt)**
       <->
