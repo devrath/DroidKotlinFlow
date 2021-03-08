@@ -68,5 +68,15 @@ As an android developer, you would have come across RxJava for asynchronous prog
       **[Repository](app/src/main/java/com/demo/flow/network/repository/UsersRepository.kt)**
       <->
       **[Service](app/src/main/java/com/demo/flow/network/services/UserListService.kt)**
+* **Map Operator For transforming the elements:**  This involves fetching a list from a server and transforming it, we are displaying the last element using a transformation operator
+    * **[Model](app/src/main/java/com/demo/flow/models/ApiUser.kt)**
+      <->
+      **[View](app/src/main/java/com/demo/flow/presentation/view/fragments/OperatorMapFragment.kt)**
+      <->
+      **[ViewModel](app/src/main/java/com/demo/flow/presentation/viewmodels/OperatorMapViewModel.kt)**
+      <->
+      **[Repository](app/src/main/java/com/demo/flow/network/repository/UsersRepository.kt)**
+      <->
+      **[Service](app/src/main/java/com/demo/flow/network/services/UserListService.kt)**
     
     

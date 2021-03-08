@@ -19,7 +19,7 @@ class OperatorFilterViewModel(
         _loginUiState.value = OperatorFilterUiState.Loading
         repository.getPlaylists()
             .map { userList ->
-                // We have a list of users
+                // We have a list of users ---- This is a transformation operation
                 userList.filter {
                     // We have a single user
                     item -> item.name.startsWith("a",ignoreCase = true)

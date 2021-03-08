@@ -47,7 +47,6 @@ class OperatorMapFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupUI()
         setupObserver()
         initiateApi()
     }
@@ -61,18 +60,6 @@ class OperatorMapFragment : BaseFragment() {
         viewModel.fetchUsers()
     }
 
-    private fun setupUI() {
-        binding.recyclerView.layoutManager = LinearLayoutManager(mContext)
-        listAdapter = MyPlaylistRecyclerViewAdapter(arrayListOf())
-        binding.recyclerView.addItemDecoration(
-            DividerItemDecoration(
-                binding.recyclerView.context,
-                (binding.recyclerView.layoutManager as LinearLayoutManager).orientation
-            )
-        )
-        binding.recyclerView.adapter = listAdapter
-    }
-
     private fun setupObserver() {
 
         lifecycleScope.launchWhenStarted {
@@ -80,12 +67,12 @@ class OperatorMapFragment : BaseFragment() {
                 when (it) {
                     is OperatorMapUiState.Success -> {
                         binding.progressBar.gone()
-                        binding.recyclerView.visiable()
-                        listAdapter.updateList(it.usersList)
+                        binding.nameId.visiable()
+                        binding.nameId.text = it.user
                     }
                     is OperatorMapUiState.Loading -> {
                         binding.progressBar.visiable()
-                        binding.recyclerView.gone()
+                        binding.nameId.gone()
                     }
                     is OperatorMapUiState.Error -> {
                         binding.progressBar.gone()
