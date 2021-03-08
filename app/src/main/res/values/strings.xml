@@ -18,4 +18,9 @@
     <string name="retry_when">RetryWhen</string>
     <string name="retry_exponential_backoff">RetryExponentialBackoff</string>
     <string name="result">Result</string>
+    <string name="iterator_operators">Iterator Operators</string>
+    <string name="using_iterator">Using Iterator</string>
+    <string name="using_for">Using For</string>
+    <string name="using_for_each">Using For-Each</string>
+    <string name="using_for_each_indexed">Using For-Each-Indexed</string>
 </resources>

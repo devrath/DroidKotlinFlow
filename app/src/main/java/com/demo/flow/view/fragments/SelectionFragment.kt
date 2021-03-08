@@ -48,6 +48,7 @@ class SelectionFragment : BaseFragment() , View.OnClickListener {
         binding.startSingleNetworkCallActivity.setOnClickListener(this)
         binding.startParallelNetworkCallsActivity.setOnClickListener(this)
         binding.startFilterActivity.setOnClickListener(this)
+        binding.startIteratorFragment.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
@@ -55,6 +56,7 @@ class SelectionFragment : BaseFragment() , View.OnClickListener {
             R.id.startSingleNetworkCallActivity -> findNavController().navigate(R.id.nav_single_network_call_fragment)
             R.id.startParallelNetworkCallsActivity -> findNavController().navigate(R.id.nav_parallel_network_call_fragment)
             R.id.startFilterActivity -> findNavController().navigate(R.id.operatorFilterFragment)
+            R.id.startIteratorFragment -> findNavController().navigate(R.id.operatorIteratorsFragment)
         }
     }
 }

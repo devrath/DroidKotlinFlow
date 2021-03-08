@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="iterator_operators">Iterator Operators</string>
+    <string name="using_iterator">Using Iterator</string>
+    <string name="using_for">Using For</string>
+    <string name="using_for_each">Using For-Each</string>
+    <string name="using_for_each_indexed">Using For-Each-Indexed</string>
+</resources>

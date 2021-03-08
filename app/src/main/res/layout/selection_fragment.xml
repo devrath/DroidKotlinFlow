@@ -26,13 +26,13 @@
             style="@style/launchBtnStyle"/>
 
         <Button
-            android:id="@+id/startSeriesNetworkCallsActivity"
-            android:text="@string/series_network_calls"
+            android:id="@+id/startIteratorFragment"
+            android:text="@string/iterator_operators"
             style="@style/launchBtnStyle"/>
 
         <Button
-            android:id="@+id/startRoomDatabaseActivity"
-            android:text="@string/room_database"
+            android:id="@+id/startSeriesNetworkCallsActivity"
+            android:text="@string/series_network_calls"
             style="@style/launchBtnStyle"/>
 
         <Button
