@@ -6,6 +6,7 @@ import com.demo.flow.network.repository.UsersRepository
 import com.demo.flow.network.services.MoreUsersListService
 import com.demo.flow.network.services.UserListService
 import com.demo.flow.utils.Constants.APP_URL
+import com.demo.flow.viewmodels.OperatorFilterViewModel
 import com.demo.flow.viewmodels.ParallelNetworkCallViewModel
 import com.demo.flow.viewmodels.SingleNetworkCallViewModel
 import com.google.gson.FieldNamingPolicy
@@ -20,6 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 val viewModelModule = module {
     viewModel { SingleNetworkCallViewModel(get()) }
     viewModel { ParallelNetworkCallViewModel(get()) }
+    viewModel { OperatorFilterViewModel(get()) }
 }
 
 val repositoryModule = module {

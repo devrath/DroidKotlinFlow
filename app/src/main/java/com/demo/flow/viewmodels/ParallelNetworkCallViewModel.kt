@@ -24,11 +24,7 @@ class ParallelNetworkCallViewModel(
 
         repository.getPlaylists()
             .zip(repository.getMorePlaylists()) { usersFromApi, moreUsersFromApi ->
-                val allUsersFromApi = mutableListOf<ApiUser>()
-                allUsersFromApi.addAll(usersFromApi)
-                allUsersFromApi.addAll(moreUsersFromApi)
-                _loginUiState.value = ParallelNetworkCallUiState.Success(allUsersFromApi)
-                return@zip allUsersFromApi
+                return@zip usersFromApi + moreUsersFromApi
             }.flowOn(Dispatchers.Default)
                 .catch { _loginUiState.value = ParallelNetworkCallUiState.Error(it.message!!) }
                 .collect {
