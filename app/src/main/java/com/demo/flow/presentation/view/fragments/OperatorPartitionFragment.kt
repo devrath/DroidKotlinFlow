@@ -12,7 +12,9 @@ import com.demo.flow.databinding.FragmentOperatorPartitionBinding
 import com.demo.flow.presentation.base.BaseFragment
 import com.demo.flow.presentation.view.adapters.MyPlaylistRecyclerViewAdapter
 import com.demo.flow.presentation.view.uiState.OperatorFilterUiState
+import com.demo.flow.presentation.view.uiState.OperatorPartitionUiState
 import com.demo.flow.presentation.viewmodels.OperatorFilterViewModel
+import com.demo.flow.presentation.viewmodels.OperatorPartitionViewModel
 import com.demo.flow.utils.extensions.gone
 import com.demo.flow.utils.extensions.snack
 import com.demo.flow.utils.extensions.visiable
@@ -21,7 +23,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class OperatorPartitionFragment : BaseFragment() {
 
-    private val viewModel by viewModel<OperatorFilterViewModel>()
+    private val viewModel by viewModel<OperatorPartitionViewModel>()
 
     private var _binding: FragmentOperatorPartitionBinding? = null
     private val binding get() = _binding!!
@@ -75,18 +77,18 @@ class OperatorPartitionFragment : BaseFragment() {
     private fun setupObserver() {
 
         lifecycleScope.launchWhenStarted {
-            viewModel.operatorFilterUiState.collect {
+            viewModel.operatorPartitionUiState.collect {
                 when (it) {
-                    is OperatorFilterUiState.Success -> {
+                    is OperatorPartitionUiState.Success -> {
                         binding.progressBar.gone()
                         binding.recyclerView.visiable()
                         listAdapter.updateList(it.usersList)
                     }
-                    is OperatorFilterUiState.Loading -> {
+                    is OperatorPartitionUiState.Loading -> {
                         binding.progressBar.visiable()
                         binding.recyclerView.gone()
                     }
-                    is OperatorFilterUiState.Error -> {
+                    is OperatorPartitionUiState.Error -> {
                         binding.progressBar.gone()
                         binding.rootId.snack(it.message) {}
                     }
