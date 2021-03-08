@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_nav_selection_fragment_to_operatorMapFragment"
             app:destination="@id/operatorMapFragment" />
+        <action
+            android:id="@+id/action_nav_selection_fragment_to_operatorPartitionFragment"
+            app:destination="@id/operatorPartitionFragment" />
 
     </fragment>
 
@@ -51,5 +54,10 @@
         android:name="com.demo.flow.presentation.view.fragments.OperatorMapFragment"
         tools:layout="@layout/fragment_operator_map"
         android:label="OperatorMapFragment" />
+    <fragment
+        android:id="@+id/operatorPartitionFragment"
+        android:name="com.demo.flow.presentation.view.fragments.OperatorPartitionFragment"
+        tools:layout="@layout/fragment_operator_partition"
+        android:label="OperatorPartitionFragment" />
 
 </navigation>

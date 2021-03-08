@@ -23,4 +23,5 @@
     <string name="using_for">Using For</string>
     <string name="using_for_each">Using For-Each</string>
     <string name="using_for_each_indexed">Using For-Each-Indexed</string>
+    <string name="partition">Partition</string>
 </resources>

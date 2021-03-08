@@ -34,7 +34,12 @@
             android:id="@+id/startMapFragmentId"
             android:text="@string/map"
             style="@style/launchBtnStyle"/>
-        
+
+        <Button
+            android:id="@+id/startPartitionFragmentId"
+            android:text="@string/partition"
+            style="@style/launchBtnStyle"/>
+
 
     </LinearLayout>
 </ScrollView>
