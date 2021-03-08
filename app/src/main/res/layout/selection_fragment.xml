@@ -38,6 +38,7 @@
         <Button
             android:id="@+id/startPartitionFragmentId"
             android:text="@string/partition"
+            android:visibility="gone"
             style="@style/launchBtnStyle"/>
 
 
