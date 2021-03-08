@@ -58,7 +58,7 @@ As an android developer, you would have come across RxJava for asynchronous prog
       **[Service](app/src/main/java/com/demo/flow/network/services/UserListService.kt)**
 
 * **Iterator Operator For iterating the elements:**  This involves fetching a list from a server and iterating the elements in different ways 
-    * Iterator, For, ForEach, ForEachIndexed
+    * Iterating operators are ---- > Iterator, For, ForEach, ForEachIndexed
     * **[Model](app/src/main/java/com/demo/flow/models/ApiUser.kt)**
       <->
       **[View](app/src/main/java/com/demo/flow/presentation/view/fragments/OperatorIteratorsFragment.kt)**
