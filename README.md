@@ -55,6 +55,6 @@ As an android developer, you would have come across RxJava for asynchronous prog
       <->
       **[Repository](app/src/main/java/com/demo/flow/network/repository/UsersRepository.kt)**
       <->
-      **[Service](app/src/main/java/com/demo/flow/network/services/UserListService.kt)**,    
+      **[Service](app/src/main/java/com/demo/flow/network/services/UserListService.kt)**
     
     
