@@ -26,9 +26,9 @@ As an android developer, you would have come across RxJava for asynchronous prog
 * **Single Network Call:**  This is performing a single networking request
     * **[Model](app/src/main/java/com/demo/flow/models/ApiUser.kt)**
       <->
-      **[View](app/src/main/java/com/demo/flow/view/fragments/SingleNetworkCallFragment.kt)**
+      **[View](app/src/main/java/com/demo/flow/presentation/view/fragments/SingleNetworkCallFragment.kt)**
       <->
-      **[ViewModel](app/src/main/java/com/demo/flow/viewmodels/SingleNetworkCallViewModel.kt)**
+      **[ViewModel](app/src/main/java/com/demo/flow/presentation/viewmodels/SingleNetworkCallViewModel.kt)**
       <->
       **[Repository](app/src/main/java/com/demo/flow/network/repository/UsersRepository.kt)**
       <->
@@ -37,9 +37,9 @@ As an android developer, you would have come across RxJava for asynchronous prog
 * **Parallel Network Call:**  This involves making two networking requests in parallel, Once both are completed the results of both of them are returned at once.
     * **[Model](app/src/main/java/com/demo/flow/models/ApiUser.kt)**
       <->
-      **[View](app/src/main/java/com/demo/flow/view/fragments/SingleNetworkCallFragment.kt)**
+      **[View](app/src/main/java/com/demo/flow/presentation/view/fragments/SingleNetworkCallFragment.kt)**
       <->
-      **[ViewModel](app/src/main/java/com/demo/flow/viewmodels/ParallelNetworkCallViewModel.kt)**
+      **[ViewModel](app/src/main/java/com/demo/flow/presentation/viewmodels/ParallelNetworkCallViewModel.kt)**
       <->
       **[Repository](app/src/main/java/com/demo/flow/network/repository/UsersRepository.kt)**
       <->
@@ -49,9 +49,21 @@ As an android developer, you would have come across RxJava for asynchronous prog
 * **Filter Operator For A Network Call:**  This involves fetching a list from a server, Then filtering the users whose name starts with 'A'
     * **[Model](app/src/main/java/com/demo/flow/models/ApiUser.kt)**
       <->
-      **[View](app/src/main/java/com/demo/flow/view/fragments/OperatorFilterFragment.kt)**
+      **[View](app/src/main/java/com/demo/flow/presentation/view/fragments/OperatorFilterFragment.kt)**
       <->
-      **[ViewModel](app/src/main/java/com/demo/flow/viewmodels/OperatorFilterViewModel.kt)**
+      **[ViewModel](app/src/main/java/com/demo/flow/presentation/viewmodels/OperatorFilterViewModel.kt)**
+      <->
+      **[Repository](app/src/main/java/com/demo/flow/network/repository/UsersRepository.kt)**
+      <->
+      **[Service](app/src/main/java/com/demo/flow/network/services/UserListService.kt)**
+
+* **Iterator Operator For iterating the elements:**  This involves fetching a list from a server and iterating the elements in different ways 
+    * Iterator, For, ForEach, ForEachIndexed
+    * **[Model](app/src/main/java/com/demo/flow/models/ApiUser.kt)**
+      <->
+      **[View](app/src/main/java/com/demo/flow/presentation/view/fragments/OperatorIteratorsFragment.kt)**
+      <->
+      **[ViewModel](app/src/main/java/com/demo/flow/presentation/viewmodels/OperatorIteratorsViewModel.kt)**
       <->
       **[Repository](app/src/main/java/com/demo/flow/network/repository/UsersRepository.kt)**
       <->
