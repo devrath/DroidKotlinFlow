@@ -31,6 +31,11 @@
             style="@style/launchBtnStyle"/>
 
         <Button
+            android:id="@+id/startMapFragmentId"
+            android:text="@string/map"
+            style="@style/launchBtnStyle"/>
+
+        <Button
             android:id="@+id/startSeriesNetworkCallsActivity"
             android:text="@string/series_network_calls"
             style="@style/launchBtnStyle"/>
@@ -58,11 +63,6 @@
         <Button
             android:id="@+id/startTwoLongRunningTasksActivity"
             android:text="@string/two_long_running_tasks"
-            style="@style/launchBtnStyle"/>
-
-        <Button
-            android:id="@+id/startMapActivity"
-            android:text="@string/map"
             style="@style/launchBtnStyle"/>
 
         <Button

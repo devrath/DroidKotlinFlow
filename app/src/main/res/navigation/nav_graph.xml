@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_nav_selection_fragment_to_operatorIteratorsFragment"
             app:destination="@id/operatorIteratorsFragment" />
+        <action
+            android:id="@+id/action_nav_selection_fragment_to_operatorMapFragment"
+            app:destination="@id/operatorMapFragment" />
 
     </fragment>
 
@@ -43,5 +46,10 @@
         android:name="com.demo.flow.presentation.view.fragments.OperatorIteratorsFragment"
         tools:layout="@layout/fragment_operator_iterator"
         android:label="OperatorIteratorsFragment" />
+    <fragment
+        android:id="@+id/operatorMapFragment"
+        android:name="com.demo.flow.presentation.view.fragments.OperatorMapFragment"
+        tools:layout="@layout/fragment_operator_map"
+        android:label="OperatorMapFragment" />
 
 </navigation>
