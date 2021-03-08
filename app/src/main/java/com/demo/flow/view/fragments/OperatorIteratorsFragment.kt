@@ -18,14 +18,16 @@ import com.demo.flow.utils.extensions.snack
 import com.demo.flow.utils.extensions.toast
 import com.demo.flow.utils.extensions.visiable
 import com.demo.flow.view.actions.OperatorFilterUiState
+import com.demo.flow.view.actions.OperatorIteratorUiState
 import com.demo.flow.view.adapters.MyPlaylistRecyclerViewAdapter
 import com.demo.flow.viewmodels.OperatorFilterViewModel
+import com.demo.flow.viewmodels.OperatorIteratorsViewModel
 import kotlinx.coroutines.flow.collect
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class OperatorIteratorsFragment : BaseFragment(), View.OnClickListener{
 
-    private val viewModel by viewModel<OperatorFilterViewModel>()
+    private val viewModel by viewModel<OperatorIteratorsViewModel>()
 
     private var _binding: FragmentOperatorIteratorBinding? = null
     private val binding get() = _binding!!
@@ -74,18 +76,18 @@ class OperatorIteratorsFragment : BaseFragment(), View.OnClickListener{
     private fun setupObserver() {
 
         lifecycleScope.launchWhenStarted {
-            viewModel.operatorFilterUiState.collect {
+            viewModel.operatorIteratorUiState.collect {
                 when (it) {
-                    is OperatorFilterUiState.Success -> {
+                    is OperatorIteratorUiState.Success -> {
                         binding.progressBar.gone()
                         binding.operatorsContainerId.visiable()
                         listAdapter.updateList(it.usersList)
                     }
-                    is OperatorFilterUiState.Loading -> {
+                    is OperatorIteratorUiState.Loading -> {
                         binding.progressBar.visiable()
                         binding.operatorsContainerId.gone()
                     }
-                    is OperatorFilterUiState.Error -> {
+                    is OperatorIteratorUiState.Error -> {
                         binding.progressBar.gone()
                         binding.rootId.snack(it.message) {}
                     }
