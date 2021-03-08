@@ -15,8 +15,10 @@ import com.demo.flow.utils.extensions.toast
 import com.demo.flow.utils.extensions.visiable
 import com.demo.flow.presentation.view.uiState.OperatorIteratorUiState
 import com.demo.flow.presentation.view.adapters.MyPlaylistRecyclerViewAdapter
+import com.demo.flow.presentation.view.uiActions.OperatorIteratorsAction
 import com.demo.flow.presentation.viewmodels.OperatorIteratorsViewModel
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class OperatorIteratorsFragment : BaseFragment(), View.OnClickListener{
@@ -48,16 +50,11 @@ class OperatorIteratorsFragment : BaseFragment(), View.OnClickListener{
         super.onViewCreated(view, savedInstanceState)
         setupUI()
         setupObserver()
-        initiateApi()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
-    }
-
-    private fun initiateApi() {
-        viewModel.fetchUsers()
     }
 
     private fun setupUI() {
@@ -75,7 +72,6 @@ class OperatorIteratorsFragment : BaseFragment(), View.OnClickListener{
                     is OperatorIteratorUiState.Success -> {
                         binding.progressBar.gone()
                         binding.operatorsContainerId.visiable()
-                        listAdapter.updateList(it.usersList)
                     }
                     is OperatorIteratorUiState.Loading -> {
                         binding.progressBar.visiable()
@@ -85,6 +81,10 @@ class OperatorIteratorsFragment : BaseFragment(), View.OnClickListener{
                         binding.progressBar.gone()
                         binding.rootId.snack(it.message) {}
                     }
+                    is OperatorIteratorUiState.Empty -> {
+                        binding.progressBar.gone()
+                        binding.operatorsContainerId.visiable()
+                    }
                     else -> Unit
                 }
             }
@@ -92,11 +92,21 @@ class OperatorIteratorsFragment : BaseFragment(), View.OnClickListener{
     }
 
     override fun onClick(v: View?) {
-        when(view?.id){
-            R.id.btnIteratorId -> toast("ITERATOR - OPTION",true,mContext)
-            R.id.btnForId ->  toast("FOR - OPTION",true,mContext)
-            R.id.btnForEachId ->  toast("FOR EACH - OPTION",true,mContext)
-            R.id.btnForEachIndexedId ->  toast("FOR EACH INDEXED - OPTION",true,mContext)
+
+            when(view?.id){
+                R.id.btnIteratorId -> lifecycleScope.launch {
+                    viewModel.operatorIteratorsAction.send(OperatorIteratorsAction.OperatorActionIterator(""))
+                }
+                R.id.btnForId -> lifecycleScope.launch {
+                    viewModel.operatorIteratorsAction.send(OperatorIteratorsAction.OperatorActionFor(""))
+                }
+                R.id.btnForEachId -> lifecycleScope.launch {
+                    viewModel.operatorIteratorsAction.send(OperatorIteratorsAction.OperatorActionForEach(""))
+                }
+                R.id.btnForEachIndexedId -> lifecycleScope.launch {
+                    viewModel.operatorIteratorsAction.send(OperatorIteratorsAction.OperatorActionForEachIndexed(""))
+                }
+            }
         }
-    }
+
 }
