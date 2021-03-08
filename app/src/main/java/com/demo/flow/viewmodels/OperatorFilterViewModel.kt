@@ -14,20 +14,19 @@ class OperatorFilterViewModel(
     private val repository : UsersRepository
 ) : ViewModel() {
     private val _loginUiState = MutableStateFlow<OperatorFilterUiState>(OperatorFilterUiState.Empty)
-    val operatorFilterUiState: StateFlow<OperatorFilterUiState> = _loginUiState
 
+    val operatorFilterUiState: StateFlow<OperatorFilterUiState> = _loginUiState
 
     fun fetchUsers() = viewModelScope.launch {
         _loginUiState.value = OperatorFilterUiState.Loading
-
         repository.getPlaylists()
-            .filter { mList ->
-                mList.filter {  item -> !item.name.startsWith("a",true) }
-                true
+            .map { userList ->
+                userList.filter {
+                        item -> item.name.startsWith("a",ignoreCase = true)
+                } 
             }
             .flowOn(Dispatchers.Default)
             .catch { _loginUiState.value = OperatorFilterUiState.Error(it.message!!) }
             .collect { _loginUiState.value = OperatorFilterUiState.Success(it) }
     }
-
 }
