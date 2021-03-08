@@ -1,6 +1,5 @@
-package com.demo.flow.base
+package com.demo.flow.presentation.base
 
-import android.content.Context
 import androidx.fragment.app.Fragment
 
 open class BaseFragment : Fragment() {

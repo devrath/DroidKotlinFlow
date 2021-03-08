@@ -1,8 +1,7 @@
-package com.demo.flow.view.activities
+package com.demo.flow.presentation.view.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import com.demo.flow.R
 
 class MainActivity : AppCompatActivity() {

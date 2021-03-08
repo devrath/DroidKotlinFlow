@@ -1,4 +1,4 @@
-package com.demo.flow.view.fragments
+package com.demo.flow.presentation.view.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -6,30 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.demo.flow.R
-import com.demo.flow.base.BaseFragment
+import com.demo.flow.presentation.base.BaseFragment
 import com.demo.flow.databinding.FragmentOperatorFilterBinding
-import com.demo.flow.databinding.FragmentOperatorIteratorBinding
 import com.demo.flow.utils.extensions.gone
 import com.demo.flow.utils.extensions.snack
-import com.demo.flow.utils.extensions.toast
 import com.demo.flow.utils.extensions.visiable
-import com.demo.flow.view.actions.OperatorFilterUiState
-import com.demo.flow.view.actions.OperatorIteratorUiState
-import com.demo.flow.view.adapters.MyPlaylistRecyclerViewAdapter
-import com.demo.flow.viewmodels.OperatorFilterViewModel
-import com.demo.flow.viewmodels.OperatorIteratorsViewModel
+import com.demo.flow.presentation.view.uiState.OperatorFilterUiState
+import com.demo.flow.presentation.view.adapters.MyPlaylistRecyclerViewAdapter
+import com.demo.flow.presentation.viewmodels.OperatorFilterViewModel
 import kotlinx.coroutines.flow.collect
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class OperatorIteratorsFragment : BaseFragment(), View.OnClickListener{
+class OperatorFilterFragment : BaseFragment() {
 
-    private val viewModel by viewModel<OperatorIteratorsViewModel>()
+    private val viewModel by viewModel<OperatorFilterViewModel>()
 
-    private var _binding: FragmentOperatorIteratorBinding? = null
+    private var _binding: FragmentOperatorFilterBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var mContext : Context
@@ -46,7 +40,7 @@ class OperatorIteratorsFragment : BaseFragment(), View.OnClickListener{
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentOperatorIteratorBinding.inflate(layoutInflater)
+        _binding = FragmentOperatorFilterBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -67,42 +61,38 @@ class OperatorIteratorsFragment : BaseFragment(), View.OnClickListener{
     }
 
     private fun setupUI() {
-        binding.btnIteratorId.setOnClickListener(this)
-        binding.btnForId.setOnClickListener(this)
-        binding.btnForEachId.setOnClickListener(this)
-        binding.btnForEachIndexedId.setOnClickListener(this)
+        binding.recyclerView.layoutManager = LinearLayoutManager(mContext)
+        listAdapter = MyPlaylistRecyclerViewAdapter(arrayListOf())
+        binding.recyclerView.addItemDecoration(
+            DividerItemDecoration(
+                binding.recyclerView.context,
+                (binding.recyclerView.layoutManager as LinearLayoutManager).orientation
+            )
+        )
+        binding.recyclerView.adapter = listAdapter
     }
 
     private fun setupObserver() {
 
         lifecycleScope.launchWhenStarted {
-            viewModel.operatorIteratorUiState.collect {
+            viewModel.operatorFilterUiState.collect {
                 when (it) {
-                    is OperatorIteratorUiState.Success -> {
+                    is OperatorFilterUiState.Success -> {
                         binding.progressBar.gone()
-                        binding.operatorsContainerId.visiable()
+                        binding.recyclerView.visiable()
                         listAdapter.updateList(it.usersList)
                     }
-                    is OperatorIteratorUiState.Loading -> {
+                    is OperatorFilterUiState.Loading -> {
                         binding.progressBar.visiable()
-                        binding.operatorsContainerId.gone()
+                        binding.recyclerView.gone()
                     }
-                    is OperatorIteratorUiState.Error -> {
+                    is OperatorFilterUiState.Error -> {
                         binding.progressBar.gone()
                         binding.rootId.snack(it.message) {}
                     }
                     else -> Unit
                 }
             }
-        }
-    }
-
-    override fun onClick(v: View?) {
-        when(view?.id){
-            R.id.btnIteratorId -> toast("FOR ITERATOR - OPTION",true,mContext)
-            R.id.btnForId ->  toast("FOR - OPTION",true,mContext)
-            R.id.btnForEachId ->  toast("FOR EACH - OPTION",true,mContext)
-            R.id.btnForEachIndexedId ->  toast("FOR EACH INDEXED - OPTION",true,mContext)
         }
     }
 }

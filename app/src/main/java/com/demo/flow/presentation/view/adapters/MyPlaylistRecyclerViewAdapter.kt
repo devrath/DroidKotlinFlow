@@ -1,4 +1,4 @@
-package com.demo.flow.view.adapters
+package com.demo.flow.presentation.view.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

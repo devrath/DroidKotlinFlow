@@ -1,4 +1,4 @@
-package com.demo.flow.view.fragments
+package com.demo.flow.presentation.view.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -6,24 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.demo.flow.base.BaseFragment
-import com.demo.flow.databinding.FragmentSingleNetworkCallBinding
-import com.demo.flow.utils.extensions.snack
-import com.demo.flow.view.actions.SingleNetworkCallUiState
-import com.demo.flow.view.adapters.MyPlaylistRecyclerViewAdapter
-import com.demo.flow.viewmodels.SingleNetworkCallViewModel
+import com.demo.flow.R
+import com.demo.flow.presentation.base.BaseFragment
+import com.demo.flow.databinding.FragmentOperatorIteratorBinding
 import com.demo.flow.utils.extensions.gone
+import com.demo.flow.utils.extensions.snack
+import com.demo.flow.utils.extensions.toast
 import com.demo.flow.utils.extensions.visiable
+import com.demo.flow.presentation.view.uiState.OperatorIteratorUiState
+import com.demo.flow.presentation.view.adapters.MyPlaylistRecyclerViewAdapter
+import com.demo.flow.presentation.viewmodels.OperatorIteratorsViewModel
 import kotlinx.coroutines.flow.collect
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SingleNetworkCallFragment : BaseFragment() {
+class OperatorIteratorsFragment : BaseFragment(), View.OnClickListener{
 
-    private val viewModel by viewModel<SingleNetworkCallViewModel>()
+    private val viewModel by viewModel<OperatorIteratorsViewModel>()
 
-    private var _binding: FragmentSingleNetworkCallBinding? = null
+    private var _binding: FragmentOperatorIteratorBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var mContext : Context
@@ -40,7 +40,7 @@ class SingleNetworkCallFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentSingleNetworkCallBinding.inflate(layoutInflater)
+        _binding = FragmentOperatorIteratorBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -61,38 +61,42 @@ class SingleNetworkCallFragment : BaseFragment() {
     }
 
     private fun setupUI() {
-        binding.recyclerView.layoutManager = LinearLayoutManager(mContext)
-        listAdapter = MyPlaylistRecyclerViewAdapter(arrayListOf())
-        binding.recyclerView.addItemDecoration(
-            DividerItemDecoration(
-                binding.recyclerView.context,
-                (binding.recyclerView.layoutManager as LinearLayoutManager).orientation
-            )
-        )
-        binding.recyclerView.adapter = listAdapter
+        binding.btnIteratorId.setOnClickListener(this)
+        binding.btnForId.setOnClickListener(this)
+        binding.btnForEachId.setOnClickListener(this)
+        binding.btnForEachIndexedId.setOnClickListener(this)
     }
 
     private fun setupObserver() {
 
         lifecycleScope.launchWhenStarted {
-            viewModel.singleNetworkCallUiState.collect {
+            viewModel.operatorIteratorUiState.collect {
                 when (it) {
-                    is SingleNetworkCallUiState.Success -> {
+                    is OperatorIteratorUiState.Success -> {
                         binding.progressBar.gone()
-                        binding.recyclerView.visiable()
+                        binding.operatorsContainerId.visiable()
                         listAdapter.updateList(it.usersList)
                     }
-                    is SingleNetworkCallUiState.Loading -> {
+                    is OperatorIteratorUiState.Loading -> {
                         binding.progressBar.visiable()
-                        binding.recyclerView.gone()
+                        binding.operatorsContainerId.gone()
                     }
-                    is SingleNetworkCallUiState.Error -> {
+                    is OperatorIteratorUiState.Error -> {
                         binding.progressBar.gone()
                         binding.rootId.snack(it.message) {}
                     }
                     else -> Unit
                 }
             }
+        }
+    }
+
+    override fun onClick(v: View?) {
+        when(view?.id){
+            R.id.btnIteratorId -> toast("ITERATOR - OPTION",true,mContext)
+            R.id.btnForId ->  toast("FOR - OPTION",true,mContext)
+            R.id.btnForEachId ->  toast("FOR EACH - OPTION",true,mContext)
+            R.id.btnForEachIndexedId ->  toast("FOR EACH INDEXED - OPTION",true,mContext)
         }
     }
 }

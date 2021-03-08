@@ -1,10 +1,8 @@
-package com.demo.flow.viewmodels
+package com.demo.flow.presentation.viewmodels
 
 import androidx.lifecycle.*
 import com.demo.flow.network.repository.UsersRepository
-import com.demo.flow.utils.Constants.GENERIC_ERROR_MESSAGE
-import com.demo.flow.view.actions.ParallelNetworkCallUiState
-import com.demo.flow.view.actions.SingleNetworkCallUiState
+import com.demo.flow.presentation.view.uiState.SingleNetworkCallUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch

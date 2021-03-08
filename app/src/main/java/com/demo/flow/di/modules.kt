@@ -6,10 +6,10 @@ import com.demo.flow.network.repository.UsersRepository
 import com.demo.flow.network.services.MoreUsersListService
 import com.demo.flow.network.services.UserListService
 import com.demo.flow.utils.Constants.APP_URL
-import com.demo.flow.viewmodels.OperatorFilterViewModel
-import com.demo.flow.viewmodels.OperatorIteratorsViewModel
-import com.demo.flow.viewmodels.ParallelNetworkCallViewModel
-import com.demo.flow.viewmodels.SingleNetworkCallViewModel
+import com.demo.flow.presentation.viewmodels.OperatorFilterViewModel
+import com.demo.flow.presentation.viewmodels.OperatorIteratorsViewModel
+import com.demo.flow.presentation.viewmodels.ParallelNetworkCallViewModel
+import com.demo.flow.presentation.viewmodels.SingleNetworkCallViewModel
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder

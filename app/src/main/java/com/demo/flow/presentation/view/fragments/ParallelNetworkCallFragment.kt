@@ -1,4 +1,4 @@
-package com.demo.flow.view.fragments
+package com.demo.flow.presentation.view.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -8,25 +8,22 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.demo.flow.base.BaseFragment
-import com.demo.flow.databinding.FragmentOperatorFilterBinding
+import com.demo.flow.presentation.base.BaseFragment
 import com.demo.flow.databinding.FragmentParallelNetworkCallBinding
 import com.demo.flow.utils.extensions.gone
 import com.demo.flow.utils.extensions.snack
 import com.demo.flow.utils.extensions.visiable
-import com.demo.flow.view.actions.OperatorFilterUiState
-import com.demo.flow.view.actions.ParallelNetworkCallUiState
-import com.demo.flow.view.adapters.MyPlaylistRecyclerViewAdapter
-import com.demo.flow.viewmodels.OperatorFilterViewModel
-import com.demo.flow.viewmodels.ParallelNetworkCallViewModel
+import com.demo.flow.presentation.view.uiState.ParallelNetworkCallUiState
+import com.demo.flow.presentation.view.adapters.MyPlaylistRecyclerViewAdapter
+import com.demo.flow.presentation.viewmodels.ParallelNetworkCallViewModel
 import kotlinx.coroutines.flow.collect
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class OperatorFilterFragment : BaseFragment() {
+class ParallelNetworkCallFragment : BaseFragment() {
 
-    private val viewModel by viewModel<OperatorFilterViewModel>()
+    private val viewModel by viewModel<ParallelNetworkCallViewModel>()
 
-    private var _binding: FragmentOperatorFilterBinding? = null
+    private var _binding: FragmentParallelNetworkCallBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var mContext : Context
@@ -43,7 +40,7 @@ class OperatorFilterFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentOperatorFilterBinding.inflate(layoutInflater)
+        _binding = FragmentParallelNetworkCallBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -78,18 +75,18 @@ class OperatorFilterFragment : BaseFragment() {
     private fun setupObserver() {
 
         lifecycleScope.launchWhenStarted {
-            viewModel.operatorFilterUiState.collect {
+            viewModel.parallelNetworkCallUiState.collect {
                 when (it) {
-                    is OperatorFilterUiState.Success -> {
+                    is ParallelNetworkCallUiState.Success -> {
                         binding.progressBar.gone()
                         binding.recyclerView.visiable()
                         listAdapter.updateList(it.usersList)
                     }
-                    is OperatorFilterUiState.Loading -> {
+                    is ParallelNetworkCallUiState.Loading -> {
                         binding.progressBar.visiable()
                         binding.recyclerView.gone()
                     }
-                    is OperatorFilterUiState.Error -> {
+                    is ParallelNetworkCallUiState.Error -> {
                         binding.progressBar.gone()
                         binding.rootId.snack(it.message) {}
                     }

@@ -1,4 +1,4 @@
-package com.demo.flow.view.actions
+package com.demo.flow.presentation.view.uiState
 
 import com.demo.flow.models.ApiUser
 

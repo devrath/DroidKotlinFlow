@@ -1,4 +1,4 @@
-package com.demo.flow.view.fragments
+package com.demo.flow.presentation.view.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -8,22 +8,22 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.demo.flow.base.BaseFragment
-import com.demo.flow.databinding.FragmentParallelNetworkCallBinding
-import com.demo.flow.utils.extensions.gone
+import com.demo.flow.presentation.base.BaseFragment
+import com.demo.flow.databinding.FragmentSingleNetworkCallBinding
 import com.demo.flow.utils.extensions.snack
+import com.demo.flow.presentation.view.uiState.SingleNetworkCallUiState
+import com.demo.flow.presentation.view.adapters.MyPlaylistRecyclerViewAdapter
+import com.demo.flow.presentation.viewmodels.SingleNetworkCallViewModel
+import com.demo.flow.utils.extensions.gone
 import com.demo.flow.utils.extensions.visiable
-import com.demo.flow.view.actions.ParallelNetworkCallUiState
-import com.demo.flow.view.adapters.MyPlaylistRecyclerViewAdapter
-import com.demo.flow.viewmodels.ParallelNetworkCallViewModel
 import kotlinx.coroutines.flow.collect
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ParallelNetworkCallFragment : BaseFragment() {
+class SingleNetworkCallFragment : BaseFragment() {
 
-    private val viewModel by viewModel<ParallelNetworkCallViewModel>()
+    private val viewModel by viewModel<SingleNetworkCallViewModel>()
 
-    private var _binding: FragmentParallelNetworkCallBinding? = null
+    private var _binding: FragmentSingleNetworkCallBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var mContext : Context
@@ -40,7 +40,7 @@ class ParallelNetworkCallFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentParallelNetworkCallBinding.inflate(layoutInflater)
+        _binding = FragmentSingleNetworkCallBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -75,18 +75,18 @@ class ParallelNetworkCallFragment : BaseFragment() {
     private fun setupObserver() {
 
         lifecycleScope.launchWhenStarted {
-            viewModel.parallelNetworkCallUiState.collect {
+            viewModel.singleNetworkCallUiState.collect {
                 when (it) {
-                    is ParallelNetworkCallUiState.Success -> {
+                    is SingleNetworkCallUiState.Success -> {
                         binding.progressBar.gone()
                         binding.recyclerView.visiable()
                         listAdapter.updateList(it.usersList)
                     }
-                    is ParallelNetworkCallUiState.Loading -> {
+                    is SingleNetworkCallUiState.Loading -> {
                         binding.progressBar.visiable()
                         binding.recyclerView.gone()
                     }
-                    is ParallelNetworkCallUiState.Error -> {
+                    is SingleNetworkCallUiState.Error -> {
                         binding.progressBar.gone()
                         binding.rootId.snack(it.message) {}
                     }

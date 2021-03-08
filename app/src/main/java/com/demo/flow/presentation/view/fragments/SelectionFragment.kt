@@ -1,15 +1,13 @@
-package com.demo.flow.view.fragments
+package com.demo.flow.presentation.view.fragments
 
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.fragment.findNavController
 import com.demo.flow.R
-import com.demo.flow.base.BaseFragment
+import com.demo.flow.presentation.base.BaseFragment
 import com.demo.flow.databinding.SelectionFragmentBinding
 
 class SelectionFragment : BaseFragment() , View.OnClickListener {

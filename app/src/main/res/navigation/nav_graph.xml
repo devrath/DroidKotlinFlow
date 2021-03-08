@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/nav_selection_fragment"
-        android:name="com.demo.flow.view.fragments.SelectionFragment"
+        android:name="com.demo.flow.presentation.view.fragments.SelectionFragment"
         tools:layout="@layout/selection_fragment">
 
         <action
@@ -26,21 +26,21 @@
 
     <fragment
         android:id="@+id/nav_single_network_call_fragment"
-        android:name="com.demo.flow.view.fragments.SingleNetworkCallFragment"
+        android:name="com.demo.flow.presentation.view.fragments.SingleNetworkCallFragment"
         tools:layout="@layout/fragment_single_network_call"/>
 
     <fragment
         android:id="@+id/nav_parallel_network_call_fragment"
-        android:name="com.demo.flow.view.fragments.ParallelNetworkCallFragment"
+        android:name="com.demo.flow.presentation.view.fragments.ParallelNetworkCallFragment"
         tools:layout="@layout/fragment_parallel_network_call"/>
     <fragment
         android:id="@+id/operatorFilterFragment"
-        android:name="com.demo.flow.view.fragments.OperatorFilterFragment"
+        android:name="com.demo.flow.presentation.view.fragments.OperatorFilterFragment"
         tools:layout="@layout/fragment_operator_filter"
         android:label="OperatorFilterFragment" />
     <fragment
         android:id="@+id/operatorIteratorsFragment"
-        android:name="com.demo.flow.view.fragments.OperatorIteratorsFragment"
+        android:name="com.demo.flow.presentation.view.fragments.OperatorIteratorsFragment"
         tools:layout="@layout/fragment_operator_iterator"
         android:label="OperatorIteratorsFragment" />
 
