@@ -16,13 +16,18 @@
             style="@style/launchBtnStyle"/>
 
         <Button
-            android:id="@+id/startSeriesNetworkCallsActivity"
-            android:text="@string/series_network_calls"
+            android:id="@+id/startFilterActivity"
+            android:text="@string/filter"
             style="@style/launchBtnStyle"/>
 
         <Button
             android:id="@+id/startParallelNetworkCallsActivity"
             android:text="@string/parallel_network_calls"
+            style="@style/launchBtnStyle"/>
+
+        <Button
+            android:id="@+id/startSeriesNetworkCallsActivity"
+            android:text="@string/series_network_calls"
             style="@style/launchBtnStyle"/>
 
         <Button
@@ -53,11 +58,6 @@
         <Button
             android:id="@+id/startTwoLongRunningTasksActivity"
             android:text="@string/two_long_running_tasks"
-            style="@style/launchBtnStyle"/>
-
-        <Button
-            android:id="@+id/startFilterActivity"
-            android:text="@string/filter"
             style="@style/launchBtnStyle"/>
 
         <Button
