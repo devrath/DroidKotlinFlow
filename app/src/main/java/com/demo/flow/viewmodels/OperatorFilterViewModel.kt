@@ -21,12 +21,18 @@ class OperatorFilterViewModel(
         _loginUiState.value = OperatorFilterUiState.Loading
         repository.getPlaylists()
             .map { userList ->
+                // We have a list of users
                 userList.filter {
-                        item -> item.name.startsWith("a",ignoreCase = true)
-                } 
+                    // We have a single user
+                    item -> item.name.startsWith("a",ignoreCase = true)
+                }
             }
             .flowOn(Dispatchers.Default)
-            .catch { _loginUiState.value = OperatorFilterUiState.Error(it.message!!) }
-            .collect { _loginUiState.value = OperatorFilterUiState.Success(it) }
+            .catch {
+                _loginUiState.value = OperatorFilterUiState.Error(it.message!!)
+            }
+            .collect {
+                _loginUiState.value = OperatorFilterUiState.Success(it)
+            }
     }
 }

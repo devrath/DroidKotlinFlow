@@ -45,5 +45,16 @@ As an android developer, you would have come across RxJava for asynchronous prog
       <->
       **[Service1](app/src/main/java/com/demo/flow/network/services/UserListService.kt)**,
       **[Service2](app/src/main/java/com/demo/flow/network/services/MoreUsersListService.kt)**
+      
+* **Filter Operator For A Network Call:**  This involves fetching a list from a server, Then filtering the users whose name starts with 'A'
+    * **[Model](app/src/main/java/com/demo/flow/models/ApiUser.kt)**
+      <->
+      **[View](app/src/main/java/com/demo/flow/view/fragments/OperatorFilterFragment.kt)**
+      <->
+      **[ViewModel](app/src/main/java/com/demo/flow/viewmodels/OperatorFilterViewModel.kt)**
+      <->
+      **[Repository](app/src/main/java/com/demo/flow/network/repository/UsersRepository.kt)**
+      <->
+      **[Service](app/src/main/java/com/demo/flow/network/services/UserListService.kt)**,    
     
     
