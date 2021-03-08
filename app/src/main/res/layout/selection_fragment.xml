@@ -34,61 +34,7 @@
             android:id="@+id/startMapFragmentId"
             android:text="@string/map"
             style="@style/launchBtnStyle"/>
-
-        <Button
-            android:id="@+id/startSeriesNetworkCallsActivity"
-            android:text="@string/series_network_calls"
-            style="@style/launchBtnStyle"/>
-
-        <Button
-            android:id="@+id/startCatchActivity"
-            android:text="@string/catch_error"
-            style="@style/launchBtnStyle"/>
-
-        <Button
-            android:id="@+id/startEmitAllActivity"
-            android:text="@string/emit_all_error"
-            style="@style/launchBtnStyle"/>
-
-        <Button
-            android:id="@+id/startCompletionActivity"
-            android:text="@string/completion"
-            style="@style/launchBtnStyle"/>
-
-        <Button
-            android:id="@+id/startLongRunningTaskActivity"
-            android:text="@string/long_running_task"
-            style="@style/launchBtnStyle"/>
-
-        <Button
-            android:id="@+id/startTwoLongRunningTasksActivity"
-            android:text="@string/two_long_running_tasks"
-            style="@style/launchBtnStyle"/>
-
-        <Button
-            android:id="@+id/startReduceActivity"
-            android:text="@string/reduce"
-            style="@style/launchBtnStyle"/>
-
-        <Button
-            android:id="@+id/startSearchActivity"
-            android:text="@string/search"
-            style="@style/launchBtnStyle"/>
-
-        <Button
-            android:id="@+id/startRetryActivity"
-            android:text="@string/retry"
-            style="@style/launchBtnStyle"/>
-
-        <Button
-            android:id="@+id/startRetryWhenActivity"
-            android:text="@string/retry_when"
-            style="@style/launchBtnStyle"/>
-
-        <Button
-            android:id="@+id/startRetryExponentialBackoffActivity"
-            android:text="@string/retry_exponential_backoff"
-            style="@style/launchBtnStyle"/>
+        
 
     </LinearLayout>
 </ScrollView>
