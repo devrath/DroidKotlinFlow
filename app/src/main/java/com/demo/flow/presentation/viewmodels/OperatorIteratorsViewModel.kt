@@ -36,14 +36,12 @@ class OperatorIteratorsViewModel(
     private fun handleActions() {
         viewModelScope.launch {
             operatorIteratorsAction.consumeAsFlow().collect {
-                print("")
-
-                /*when (it) {
+                when (it) {
                     is OperatorIteratorsAction.OperatorActionFor -> fetchUsers(ACTION_FOR)
                     is OperatorIteratorsAction.OperatorActionForEach -> fetchUsers(ACTION_FOR_EACH)
                     is OperatorIteratorsAction.OperatorActionForEachIndexed -> fetchUsers(ACTION_FOR_EACH_INDEXED)
                     is OperatorIteratorsAction.OperatorActionIterator -> fetchUsers(ACTION_ITERATOR)
-                }*/
+                }
             }
         }
     }

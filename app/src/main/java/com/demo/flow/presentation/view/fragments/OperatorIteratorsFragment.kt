@@ -21,7 +21,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class OperatorIteratorsFragment : BaseFragment(), View.OnClickListener{
+class OperatorIteratorsFragment : BaseFragment(){
 
     private val viewModel by viewModel<OperatorIteratorsViewModel>()
 
@@ -58,10 +58,31 @@ class OperatorIteratorsFragment : BaseFragment(), View.OnClickListener{
     }
 
     private fun setupUI() {
-        binding.btnIteratorId.setOnClickListener(this)
-        binding.btnForId.setOnClickListener(this)
-        binding.btnForEachId.setOnClickListener(this)
-        binding.btnForEachIndexedId.setOnClickListener(this)
+        binding.apply {
+            btnIteratorId.setOnClickListener {
+                lifecycleScope.launch {
+                    viewModel.operatorIteratorsAction.send(OperatorIteratorsAction.OperatorActionIterator(""))
+                }
+            }
+
+            btnForId.setOnClickListener {
+                lifecycleScope.launch {
+                    viewModel.operatorIteratorsAction.send(OperatorIteratorsAction.OperatorActionFor(""))
+                }
+            }
+
+            btnForEachId.setOnClickListener {
+                lifecycleScope.launch {
+                    viewModel.operatorIteratorsAction.send(OperatorIteratorsAction.OperatorActionForEach(""))
+                }
+            }
+
+            btnForEachIndexedId.setOnClickListener {
+                lifecycleScope.launch {
+                    viewModel.operatorIteratorsAction.send(OperatorIteratorsAction.OperatorActionForEach(""))
+                }
+            }
+        }
     }
 
     private fun setupObserver() {
@@ -90,23 +111,5 @@ class OperatorIteratorsFragment : BaseFragment(), View.OnClickListener{
             }
         }
     }
-
-    override fun onClick(v: View?) {
-
-            when(view?.id){
-                R.id.btnIteratorId -> lifecycleScope.launch {
-                    viewModel.operatorIteratorsAction.send(OperatorIteratorsAction.OperatorActionIterator(""))
-                }
-                R.id.btnForId -> lifecycleScope.launch {
-                    viewModel.operatorIteratorsAction.send(OperatorIteratorsAction.OperatorActionFor(""))
-                }
-                R.id.btnForEachId -> lifecycleScope.launch {
-                    viewModel.operatorIteratorsAction.send(OperatorIteratorsAction.OperatorActionForEach(""))
-                }
-                R.id.btnForEachIndexedId -> lifecycleScope.launch {
-                    viewModel.operatorIteratorsAction.send(OperatorIteratorsAction.OperatorActionForEachIndexed(""))
-                }
-            }
-        }
 
 }
