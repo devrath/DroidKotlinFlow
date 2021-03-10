@@ -58,7 +58,6 @@ As an android developer, you would have come across RxJava for asynchronous prog
       **[Service](app/src/main/java/com/demo/flow/network/services/UserListService.kt)**
 
 * **Iterator Operator For iterating the elements:**  This involves fetching a list from a server and iterating the elements in different ways 
-    * Iterating operators are ---- > Iterator, For, ForEach, ForEachIndexed
     * **[Model](app/src/main/java/com/demo/flow/models/ApiUser.kt)**
       <->
       **[View](app/src/main/java/com/demo/flow/presentation/view/fragments/OperatorIteratorsFragment.kt)**
@@ -68,6 +67,7 @@ As an android developer, you would have come across RxJava for asynchronous prog
       **[Repository](app/src/main/java/com/demo/flow/network/repository/UsersRepository.kt)**
       <->
       **[Service](app/src/main/java/com/demo/flow/network/services/UserListService.kt)**
+    * Iterating operators are ---- > ```Iterator```, ```For```, ```ForEach```, ```ForEachIndexed```
 
 * **Map Operator For transforming the elements:**  This involves fetching a list from a server and transforming it, we are displaying the last element using a transformation operator
     * **[Model](app/src/main/java/com/demo/flow/models/ApiUser.kt)**
@@ -91,7 +91,6 @@ As an android developer, you would have come across RxJava for asynchronous prog
       <->
       **[Service](app/src/main/java/com/demo/flow/network/services/LibraryService.kt)**
 * **Math Operator For transforming the elements:** Here we shall use a collection of items. we shall get the list of price values and perform addition operation 
-    * Mathematical operators used for demo are are ---- > ```AVERAGE```, ```SUM```, ```SUM_BY```, ```MAX_BY```, ```MIN_BY```
     * **[Model](app/src/main/java/com/demo/flow/utils/Library.kt)**
       <->
       **[View](app/src/main/java/com/demo/flow/presentation/view/fragments/OperatorMathematicalFragment.kt)**
@@ -101,5 +100,5 @@ As an android developer, you would have come across RxJava for asynchronous prog
       **[Repository](app/src/main/java/com/demo/flow/network/repository/LibraryRepository.kt)**
       <->
       **[Service](app/src/main/java/com/demo/flow/network/services/LibraryService.kt)**
-    
+    * Mathematical operators used for demo are are ---- > ```AVERAGE```, ```SUM```, ```SUM_BY```, ```MAX_BY```, ```MIN_BY```
     
