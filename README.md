@@ -81,7 +81,7 @@ As an android developer, you would have come across RxJava for asynchronous prog
       **[Service](app/src/main/java/com/demo/flow/network/services/UserListService.kt)**
 
 * **Reduce Operator For transforming the elements:** Here we shall use a collection of items. The use case of reduce operator is to reduce a list of items to a single item
-    * **[Model](app/src/main/java/com/demo/flow/models/ApiUser.kt)**
+    * **[Model](app/src/main/java/com/demo/flow/utils/Library.kt)**
       <->
       **[View](app/src/main/java/com/demo/flow/presentation/view/fragments/OperatorReduceFragment.kt)**
       <->
