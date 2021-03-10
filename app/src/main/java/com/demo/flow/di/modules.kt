@@ -2,7 +2,9 @@ package com.demo.flow.di
 
 
 import com.demo.flow.network.api.PlaylistAPI
+import com.demo.flow.network.repository.LibraryRepository
 import com.demo.flow.network.repository.UsersRepository
+import com.demo.flow.network.services.LibraryService
 import com.demo.flow.network.services.MoreUsersListService
 import com.demo.flow.network.services.UserListService
 import com.demo.flow.presentation.viewmodels.*
@@ -23,17 +25,19 @@ val viewModelModule = module {
     viewModel { OperatorIteratorsViewModel(get()) }
     viewModel { OperatorMapViewModel(get()) }
     viewModel { OperatorPartitionViewModel(get()) }
-    viewModel { OperatorReduceViewModel() }
+    viewModel { OperatorReduceViewModel(get()) }
     viewModel { OperatorMathematicalViewModel() }
 }
 
 val repositoryModule = module {
     single { UsersRepository(get(),get()) }
+    single { LibraryRepository(get()) }
 }
 
 val serviceModule = module {
     single { UserListService(get()) }
     single { MoreUsersListService(get()) }
+    single { LibraryService() }
 }
 
 val apiModule = module {

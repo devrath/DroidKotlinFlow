@@ -6,13 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
-import com.demo.flow.databinding.FragmentOperatorMapBinding
 import com.demo.flow.databinding.FragmentOperatorReduceBinding
 import com.demo.flow.presentation.base.BaseFragment
 import com.demo.flow.presentation.view.adapters.MyPlaylistRecyclerViewAdapter
-import com.demo.flow.presentation.view.uiState.OperatorMapUiState
 import com.demo.flow.presentation.view.uiState.OperatorReduceUiState
-import com.demo.flow.presentation.viewmodels.OperatorMapViewModel
 import com.demo.flow.presentation.viewmodels.OperatorReduceViewModel
 import com.demo.flow.utils.extensions.gone
 import com.demo.flow.utils.extensions.snack
@@ -57,7 +54,7 @@ class OperatorReduceFragment : BaseFragment() {
     }
 
     private fun initiateApi() {
-        viewModel.fetchUsers()
+        viewModel.getTotalPriceOfBooks()
     }
 
     private fun setupObserver() {
