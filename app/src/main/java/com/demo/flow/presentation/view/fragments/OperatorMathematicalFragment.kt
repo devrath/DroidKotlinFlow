@@ -9,9 +9,13 @@ import androidx.lifecycle.lifecycleScope
 import com.demo.flow.databinding.FragmentOperatorMathematicalBinding
 import com.demo.flow.presentation.base.BaseFragment
 import com.demo.flow.presentation.view.adapters.MyPlaylistRecyclerViewAdapter
+import com.demo.flow.presentation.view.uiActions.OperatorIteratorsAction
+import com.demo.flow.presentation.view.uiActions.OperatorMathematicalAction
 import com.demo.flow.presentation.view.uiState.OperatorMathematicalUiState
 import com.demo.flow.presentation.viewmodels.OperatorMathematicalViewModel
+import com.demo.flow.utils.extensions.snack
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class OperatorMathematicalFragment  : BaseFragment() {
@@ -40,16 +44,46 @@ class OperatorMathematicalFragment  : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
-        initiateApi()
+        setUpUi()
+    }
+
+    private fun setUpUi() {
+        binding.apply {
+            btnSumId.setOnClickListener {
+                lifecycleScope.launch {
+                    viewModel.operatorMathAction.send(OperatorMathematicalAction.OperatorMathSum)
+                }
+            }
+
+            btnSumById.setOnClickListener {
+                lifecycleScope.launch {
+                    viewModel.operatorMathAction.send(OperatorMathematicalAction.OperatorMathSumBy)
+                }
+            }
+
+            btnAverageId.setOnClickListener {
+                lifecycleScope.launch {
+                    viewModel.operatorMathAction.send(OperatorMathematicalAction.OperatorAverage)
+                }
+            }
+
+            btnMinById.setOnClickListener {
+                lifecycleScope.launch {
+                    viewModel.operatorMathAction.send(OperatorMathematicalAction.OperatorMinBy)
+                }
+            }
+
+            btnMaxById.setOnClickListener {
+                lifecycleScope.launch {
+                    viewModel.operatorMathAction.send(OperatorMathematicalAction.OperatorMaxBy)
+                }
+            }
+        }
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
-    }
-
-    private fun initiateApi() {
-        //viewModel.fetchUsers()
     }
 
     private fun setupObserver() {
@@ -58,7 +92,7 @@ class OperatorMathematicalFragment  : BaseFragment() {
             viewModel.operatorMathematicalUiState.collect {
                 when (it) {
                     is OperatorMathematicalUiState.Success -> {
-                        //binding.nameId.text = it.result
+                        binding.rootId.snack(it.result) {}
                     }
                     else -> Unit
                 }
