@@ -13,4 +13,5 @@
     <string name="sumby">SumBy</string>
     <string name="sum">Sum</string>
     <string name="mathematical_operators">Mathematical Operators</string>
+    <string name="long_operation">Long operation</string>
 </resources>

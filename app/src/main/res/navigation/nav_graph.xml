@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_nav_selection_fragment_to_operatorMathematicalFragment"
             app:destination="@id/operatorMathematicalFragment" />
+        <action
+            android:id="@+id/action_nav_selection_fragment_to_longOperationFragment"
+            app:destination="@id/longOperationFragment" />
 
     </fragment>
 
@@ -75,5 +78,10 @@
         android:name="com.demo.flow.presentation.view.fragments.OperatorMathematicalFragment"
         tools:layout="@layout/fragment_operator_mathematical"
         android:label="OperatorMathematicalFragment" />
+    <fragment
+        android:id="@+id/longOperationFragment"
+        android:name="com.demo.flow.presentation.view.fragments.LongOperationFragment"
+        tools:layout="@layout/fragment_long_operation"
+        android:label="LongOperationFragment" />
 
 </navigation>
