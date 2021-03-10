@@ -27,7 +27,6 @@ val viewModelModule = module {
     viewModel { OperatorPartitionViewModel(get()) }
     viewModel { OperatorReduceViewModel(get()) }
     viewModel { OperatorMathematicalViewModel(get()) }
-    viewModel { LongOperationViewModel(get()) }
 }
 
 val repositoryModule = module {

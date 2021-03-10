@@ -46,11 +46,6 @@
             style="@style/launchBtnStyle"/>
 
         <Button
-            android:id="@+id/startLongOperationFragmentId"
-            android:text="@string/long_operation"
-            style="@style/launchBtnStyle"/>
-
-        <Button
             android:id="@+id/startPartitionFragmentId"
             android:text="@string/partition"
             android:visibility="gone"
