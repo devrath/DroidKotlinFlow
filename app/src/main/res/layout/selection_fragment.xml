@@ -41,6 +41,11 @@
             style="@style/launchBtnStyle"/>
 
         <Button
+            android:id="@+id/startMathematicalFragmentId"
+            android:text="@string/mathematical_operators"
+            style="@style/launchBtnStyle"/>
+
+        <Button
             android:id="@+id/startPartitionFragmentId"
             android:text="@string/partition"
             android:visibility="gone"

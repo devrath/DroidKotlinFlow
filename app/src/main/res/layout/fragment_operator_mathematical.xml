@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootId"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/operatorsContainerId"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnSumId"
+            style="@style/launchBtnStyle"
+            android:text="@string/sum" />
+
+        <Button
+            android:id="@+id/btnSumById"
+            style="@style/launchBtnStyle"
+            android:text="@string/sumby" />
+
+        <Button
+            android:id="@+id/btnAverageId"
+            style="@style/launchBtnStyle"
+            android:text="@string/average" />
+
+        <Button
+            android:id="@+id/btnMinById"
+            style="@style/launchBtnStyle"
+            android:text="@string/minby" />
+
+        <Button
+            android:id="@+id/btnMaxById"
+            style="@style/launchBtnStyle"
+            android:text="@string/maxby" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

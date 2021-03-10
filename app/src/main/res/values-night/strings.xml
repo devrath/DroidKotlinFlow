@@ -7,4 +7,10 @@
     <string name="using_for_each_indexed">Using For-Each-Indexed</string>
     <string name="partition">Partition</string>
     <string name="reduce_operators">Reduce Operators</string>
+    <string name="maxby">MaxBy</string>
+    <string name="minby">MinBy</string>
+    <string name="average">Average</string>
+    <string name="sumby">SumBy</string>
+    <string name="sum">Sum</string>
+    <string name="mathematical_operators">Mathematical Operators</string>
 </resources>
