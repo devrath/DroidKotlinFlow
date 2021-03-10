@@ -87,8 +87,8 @@ As an android developer, you would have come across RxJava for asynchronous prog
       <->
       **[ViewModel](app/src/main/java/com/demo/flow/presentation/viewmodels/OperatorReduceViewModel.kt)**
       <->
-      **[Repository](app/src/main/java/com/demo/flow/network/repository/UsersRepository.kt)**
+      **[Repository](app/src/main/java/com/demo/flow/network/repository/LibraryRepository.kt)**
       <->
-      **[Service](app/src/main/java/com/demo/flow/network/services/UserListService.kt)**
+      **[Service](app/src/main/java/com/demo/flow/network/services/LibraryService.kt)**
     
     
