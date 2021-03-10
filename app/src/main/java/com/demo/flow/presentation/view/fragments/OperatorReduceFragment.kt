@@ -68,7 +68,7 @@ class OperatorReduceFragment : BaseFragment() {
                     is OperatorReduceUiState.Success -> {
                         binding.progressBar.gone()
                         binding.nameId.visiable()
-                        //binding.nameId.text = it.user
+                        binding.nameId.text = it.result
                     }
                     is OperatorReduceUiState.Loading -> {
                         binding.progressBar.visiable()
