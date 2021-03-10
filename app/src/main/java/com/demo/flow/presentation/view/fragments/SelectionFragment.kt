@@ -49,6 +49,7 @@ class SelectionFragment : BaseFragment() , View.OnClickListener {
         binding.startIteratorFragment.setOnClickListener(this)
         binding.startMapFragmentId.setOnClickListener(this)
         binding.startPartitionFragmentId.setOnClickListener(this)
+        binding.startReduceFragmentId.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
@@ -59,6 +60,7 @@ class SelectionFragment : BaseFragment() , View.OnClickListener {
             R.id.startIteratorFragment -> findNavController().navigate(R.id.operatorIteratorsFragment)
             R.id.startMapFragmentId -> findNavController().navigate(R.id.operatorMapFragment)
             R.id.startPartitionFragmentId -> findNavController().navigate(R.id.operatorPartitionFragment)
+            R.id.startReduceFragmentId -> findNavController().navigate(R.id.operatorReduceFragment)
         }
     }
 }
