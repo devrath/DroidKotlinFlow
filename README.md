@@ -90,5 +90,16 @@ As an android developer, you would have come across RxJava for asynchronous prog
       **[Repository](app/src/main/java/com/demo/flow/network/repository/LibraryRepository.kt)**
       <->
       **[Service](app/src/main/java/com/demo/flow/network/services/LibraryService.kt)**
+* **Math Operator For transforming the elements:** Here we shall use a collection of items. we shall get the list of price values and perform addition operation 
+    * Mathematical operators used for demo are are ---- > AVERAGE, MATH_SUM, MATH_SUM_BY, MATH_MAX_BY, MATH_MIN_BY
+    * **[Model](app/src/main/java/com/demo/flow/utils/Library.kt)**
+      <->
+      **[View](app/src/main/java/com/demo/flow/presentation/view/fragments/OperatorMathematicalFragment.kt)**
+      <->
+      **[ViewModel](app/src/main/java/com/demo/flow/presentation/viewmodels/OperatorMathematicalViewModel.kt)**
+      <->
+      **[Repository](app/src/main/java/com/demo/flow/network/repository/LibraryRepository.kt)**
+      <->
+      **[Service](app/src/main/java/com/demo/flow/network/services/LibraryService.kt)**
     
     
