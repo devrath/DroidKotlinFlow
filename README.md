@@ -67,7 +67,7 @@ As an android developer, you would have come across RxJava for asynchronous prog
       **[Repository](app/src/main/java/com/demo/flow/network/repository/UsersRepository.kt)**
       <->
       **[Service](app/src/main/java/com/demo/flow/network/services/UserListService.kt)**
-    * Iterating operators are ---- > ```Iterator```, ```For```, ```ForEach```, ```ForEachIndexed```
+    * Iterating operators used are ---- > ```Iterator```, ```For```, ```ForEach```, ```ForEachIndexed```
 
 * **Map Operator For transforming the elements:**  This involves fetching a list from a server and transforming it, we are displaying the last element using a transformation operator
     * **[Model](app/src/main/java/com/demo/flow/models/ApiUser.kt)**
