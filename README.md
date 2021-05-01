@@ -102,4 +102,12 @@ As an android developer, you would have come across RxJava for asynchronous prog
       <->
       **[Service](app/src/main/java/com/demo/flow/network/services/LibraryService.kt)**
     * Mathematical operators used for demo are are ---- > ```AVERAGE```, ```SUM```, ```SUM_BY```, ```MAX_BY```, ```MIN_BY```
+
+<p align="center">
+<a><img src="https://forthebadge.com/images/badges/built-for-android.svg"></a>
+<a><img src="https://forthebadge.com/images/badges/built-with-love.svg"></a>  
+<a><img src="https://forthebadge.com/images/badges/powered-by-coffee.svg"></a>  
+<a><img src="https://forthebadge.com/images/badges/open-source.svg"></a>  
+</p>
+
     
